@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluación Integrativa ENF801 · Oncología 2026</title>
+<style>
+:root{
+ --navy:#0d2d52;--navy2:#174f7e;--teal:#167c82;--bg:#f3f7fb;--ink:#17212b;
+ --muted:#627182;--line:#d8e2ec;--ok:#166b40;--bad:#9b3a2d;--hint:#805900;--card:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(180deg,#edf4f8,#f9fbfd)}
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:24px 18px}
+header .wrap{max-width:1000px;margin:auto}
+h1{font-size:1.55rem;margin:0 0 7px}
+header p{margin:0;color:#dfeaf4;line-height:1.5}
+main{max-width:1000px;margin:22px auto 60px;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 26px rgba(13,45,82,.08);padding:22px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.field{font-weight:700;font-size:.9rem}
+input[type=text]{width:100%;margin-top:6px;padding:11px;border:1px solid #bdcad7;border-radius:10px;font-size:1rem}
+.notice{background:#edf8f8;border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;line-height:1.5}
+button{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;font-size:.95rem}
+button.primary{background:var(--navy);color:#fff}
+button.accent{background:var(--teal);color:#fff}
+button.secondary{background:#eaf1f7;color:var(--navy)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.hidden{display:none!important}
+.meta{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.badge{display:inline-block;background:#e7f1f7;color:var(--navy);border-radius:999px;padding:6px 10px;font-weight:700;font-size:.82rem}
+.counter{font-size:.88rem;color:var(--muted);font-weight:700}
+.progress-shell{height:10px;background:#e3eaf1;border-radius:999px;overflow:hidden;margin:14px 0 5px}
+.progress{height:100%;background:linear-gradient(90deg,var(--teal),var(--navy2));width:0;transition:.2s}
+.case-tag{font-size:.8rem;font-weight:700;color:var(--teal);margin-top:12px;text-transform:uppercase;letter-spacing:.04em}
+.stem{font-size:1.08rem;font-weight:700;line-height:1.5;margin:12px 0}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid #ccd8e3;border-radius:12px;padding:12px;margin:9px 0;background:#fff;cursor:pointer}
+.option:hover{background:#f8fbfd;border-color:#8fa8bf}
+.option input{margin-top:3px;transform:scale(1.12)}
+.option.wrong{background:#fff6f5;border-color:#d9a7a1}
+.option.correct{background:#f1faf5;border-color:#91c9a8}
+.option.disabled{opacity:.68;cursor:not-allowed}
+.feedback{margin-top:15px;padding:14px;border-radius:12px;border:1px solid;line-height:1.5}
+.feedback.info{background:#fff9ed;border-color:#e5c681;color:#735100}
+.feedback.ok{background:#f0faf4;border-color:#a8d5b9;color:#155c39}
+.feedback.bad{background:#fff5f2;border-color:#e0aca4;color:#7a3026}
+.source{margin-top:7px;font-size:.82rem;color:var(--muted)}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px}
+.actions .right{display:flex;gap:10px}
+.results h2{margin-top:0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:14px;background:#f9fbfd}
+.kpi b{display:block;color:var(--navy);font-size:1.45rem;margin-top:3px}
+.area-row{display:grid;grid-template-columns:1.6fr .7fr .7fr;gap:8px;padding:8px 0;border-bottom:1px solid #e6edf3}
+.small{font-size:.86rem;color:var(--muted);line-height:1.45}
+footer{text-align:center;font-size:.8rem;color:var(--muted);margin-top:24px}
+@media(max-width:720px){.grid,.kpis{grid-template-columns:1fr}.card{padding:16px}.area-row{grid-template-columns:1.4fr .8fr .8fr}}
+@media print{header,#startCard,.actions,.no-print{display:none!important}body{background:#fff}.card{box-shadow:none;border:0}main{max-width:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<h1>Evaluación Integrativa Formativa – ENF801</h1>
+<p>Cáncer de próstata y testicular · Tumores del SNC · Osteosarcoma · Hematooncología · Quimioterapia · Radioterapia · Prevención y diagnóstico · Proceso de Enfermería</p>
+</div>
+</header>
+
+<main>
+<section id="startCard" class="card">
+<h2 style="margin-top:0">Evaluación con andamiaje</h2>
+<p class="notice"><b>45 preguntas de selección única.</b> Debes responder y comprobar cada pregunta antes de avanzar. Si la primera respuesta es incorrecta, recibirás una pista y podrás realizar un segundo intento. Puedes retroceder para revisar las preguntas ya resueltas. Al finalizar podrás descargar un informe en PDF.</p>
+<div class="grid" style="margin-top:16px">
+<label class="field">Nombre completo<input id="studentName" type="text" placeholder="Nombre y apellidos"></label>
+<label class="field">NRC<input id="studentNrc" type="text" placeholder="NRC"></label>
+<label class="field">Sección<input id="studentSection" type="text" placeholder="Sección"></label>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+<button id="startBtn" class="primary">Comenzar evaluación</button>
+<button id="clearBtn" class="secondary">Borrar progreso guardado</button>
+</div>
+<p class="small">El progreso queda guardado en el navegador utilizado. La evaluación funciona sin recursos externos.</p>
+</section>
+
+<section id="quizCard" class="card hidden">
+<div class="meta">
+<span id="areaBadge" class="badge"></span>
+<span id="counter" class="counter"></span>
+</div>
+<div class="progress-shell"><div id="progress" class="progress"></div></div>
+<div id="caseTag" class="case-tag hidden"></div>
+<div id="stem" class="stem"></div>
+<div id="options"></div>
+<div id="feedback" class="feedback hidden"></div>
+<div id="source" class="source"></div>
+<div class="actions">
+<button id="prevBtn" class="secondary">← Anterior</button>
+<div class="right">
+<button id="checkBtn" class="accent">Comprobar respuesta</button>
+<button id="nextBtn" class="primary" disabled>Siguiente →</button>
+</div>
+</div>
+</section>
+
+<section id="resultCard" class="card results hidden">
+<h2>Resultados de la evaluación</h2>
+<p id="studentSummary"></p>
+<div class="kpis">
+<div class="kpi"><span>Dominio inicial</span><b id="initialScore"></b><small>Correctas al primer intento</small></div>
+<div class="kpi"><span>Logro tras andamiaje</span><b id="assistedScore"></b><small>Correctas en hasta dos intentos</small></div>
+<div class="kpi"><span>Preguntas completadas</span><b id="completedScore"></b><small>Total respondido</small></div>
+</div>
+<h3>Desempeño por área</h3>
+<div id="areaResults"></div>
+<div class="actions no-print">
+<button id="reviewBtn" class="secondary">← Revisar respuestas</button>
+<div class="right">
+<button id="pdfBtn" class="primary">Descargar resultados en PDF</button>
+<button id="restartBtn" class="accent">Reiniciar</button>
+</div>
+</div>
+<p class="small">El informe PDF incluye resultados globales, desempeño por área y detalle de cada pregunta.</p>
+</section>
+
+<footer>Evaluación integrativa ENF801 · 2026</footer>
+</main>
+
+<script>
+const QUESTIONS = [{"area": "Cáncer de próstata y testicular", "stem": "Paciente de 68 años consulta por dificultad para iniciar la micción, flujo urinario débil y nicturia. ¿Qué patología oncológica se asocia directamente con este patrón de manifestaciones?", "options": ["Cáncer testicular.", "Cáncer de próstata.", "Osteosarcoma.", "Linfoma de Hodgkin."], "answer": 1, "hint": "Relaciona la localización anatómica de la próstata con el conducto que lleva la orina desde la vejiga al exterior.", "explanation": "El cáncer de próstata puede manifestarse con dificultad para comenzar a orinar, flujo débil o interrumpido, micción frecuente y dificultad para vaciar la vejiga."}, {"area": "Tumores primarios del SNC", "stem": "Paciente con lesión frontal desarrolla modificaciones progresivas del comportamiento. ¿Qué manifestación se relaciona con esta localización?", "options": ["Cambios conductuales.", "Ataxia y dismetría.", "Hematuria.", "Fracturas óseas."], "answer": 0, "hint": "Piensa en la relación entre lóbulo frontal y conducta.", "explanation": "Las lesiones frontales se asocian a cambios conductuales."}, {"area": "Osteosarcoma", "stem": "¿Cuál definición corresponde a un sarcoma?", "options": ["Neoplasia maligna originada en tejido conectivo o conjuntivo de origen mesenquimático.", "Neoplasia exclusiva de células epiteliales.", "Alteración benigna del tejido glandular.", "Proliferación exclusiva de células hematopoyéticas maduras."], "answer": 0, "hint": "Diferencia el origen mesenquimático de los sarcomas del origen epitelial de los carcinomas.", "explanation": "Los sarcomas son neoplasias malignas originadas en tejido conectivo o conjuntivo de origen mesenquimático."}, {"area": "Hematooncología", "stem": "¿Qué tipo de médula ósea cumple función hematopoyética?", "options": ["Médula ósea roja.", "Médula ósea amarilla.", "Cartílago articular.", "Tejido adiposo subcutáneo."], "answer": 0, "hint": "La médula con función hematopoyética ocupa el tejido esponjoso de huesos planos.", "explanation": "La médula ósea roja cumple la función hematopoyética."}, {"area": "Quimioterapia", "stem": "¿Qué modalidad de quimioterapia se administra antes del procedimiento quirúrgico?", "options": ["Adyuvante.", "Neoadyuvante.", "Paliativa.", "Regional."], "answer": 1, "hint": "Su ubicación temporal es previa a la cirugía.", "explanation": "La quimioterapia neoadyuvante se administra antes del procedimiento quirúrgico."}, {"area": "Radioterapia", "stem": "¿Cuál afirmación describe mejor la radioterapia?", "options": ["Tratamiento sistémico basado solo en fármacos.", "Tratamiento local que utiliza radiación ionizante para actuar sobre células malignas.", "Procedimiento exclusivamente diagnóstico.", "Tratamiento destinado solo a enfermedades benignas."], "answer": 1, "hint": "Es uno de los pilares terapéuticos oncológicos junto con cirugía y quimioterapia.", "explanation": "La radioterapia es un tratamiento local que utiliza radiación para detener la proliferación de células malignas."}, {"area": "Prevención y diagnóstico", "stem": "¿Cuáles son los tres componentes fundamentales del procedimiento diagnóstico oncológico?", "options": ["Diagnóstico clínico, diagnóstico histológico y estudio de extensión.", "Anamnesis, cirugía y radioterapia.", "Prevención primaria, quimioterapia y rehabilitación.", "Examen físico, trasplante y radioterapia."], "answer": 0, "hint": "El proceso integra evaluación clínica, confirmación tisular y estadificación.", "explanation": "El procedimiento diagnóstico se fundamenta en diagnóstico clínico, diagnóstico histológico y estudio de extensión."}, {"area": "Cáncer de próstata y testicular", "stem": "Un paciente con sospecha de cáncer de próstata requiere confirmación diagnóstica. ¿Qué procedimiento es el indicado?", "options": ["Biopsia guiada preferentemente por ecografía transrectal.", "Punción lumbar.", "Biopsia de médula ósea.", "Ecografía transvaginal."], "answer": 0, "hint": "La confirmación requiere obtener tejido prostático y puede utilizar una guía ecográfica específica.", "explanation": "La biopsia prostática, preferentemente guiada por ecografía transrectal, se utiliza para confirmar el diagnóstico."}, {"area": "Tumores primarios del SNC", "stem": "Paciente con tumor cerebeloso presenta inestabilidad de la marcha y dificultad para coordinar movimientos. ¿Qué hallazgos son característicos?", "options": ["Afasia y hemianopsia.", "Ataxia y dismetría.", "Disuria y nicturia.", "Dolor óseo y fractura."], "answer": 1, "hint": "El cerebelo participa en coordinación y equilibrio.", "explanation": "Los tumores cerebelosos pueden manifestarse con ataxia y dismetría."}, {"area": "Osteosarcoma", "stem": "Adolescente consulta por dolor persistente en un hueso, aumento de volumen local y posteriormente presenta una fractura. ¿Qué interpretación es más coherente?", "options": ["Son manifestaciones descritas en osteosarcoma.", "El cuadro descarta una lesión tumoral.", "Corresponde exclusivamente a compromiso urinario.", "Es característico de un tumor hipotalámico."], "answer": 0, "hint": "Considera las manifestaciones locales del hueso afectado.", "explanation": "Dolor en el hueso afectado, aumento de volumen y fracturas óseas son signos y síntomas descritos en osteosarcoma."}, {"area": "Hematooncología", "stem": "¿Qué diferencia general existe entre leucemia aguda y leucemia crónica?", "options": ["La aguda compromete células hematopoyéticas inmaduras y la crónica células maduras.", "La aguda siempre es linfoide y la crónica siempre mieloide.", "La aguda afecta solo plaquetas y la crónica solo eritrocitos.", "No existe diferencia según madurez celular."], "answer": 0, "hint": "La diferencia se relaciona con el grado de maduración de las células neoplásicas.", "explanation": "La leucemia aguda se caracteriza por proliferación de células hematopoyéticas inmaduras y la crónica por células maduras."}, {"area": "Quimioterapia", "stem": "¿Cuál es el mecanismo general de los antimetabolitos?", "options": ["Interfieren con ADN y ARN sustituyendo elementos fundamentales para formar estas moléculas.", "Estimulan la división celular.", "Actúan solo sobre receptores HER2.", "Destruyen exclusivamente tejido conectivo."], "answer": 0, "hint": "Estos fármacos impiden que el ADN haga copias de sí mismo.", "explanation": "Los antimetabolitos interfieren con ADN y ARN y evitan que la célula pueda reproducirse."}, {"area": "Radioterapia", "stem": "¿En qué unidad se mide la dosis absorbida de radiación?", "options": ["Gray (Gy).", "Mililitros (mL).", "Miligramo (mg).", "Unidad internacional (UI)."], "answer": 0, "hint": "La dosis también puede expresarse en centiGray.", "explanation": "La dosis absorbida se mide en Gray (Gy) y puede expresarse en centiGray (cGy)."}, {"area": "Prevención y diagnóstico", "stem": "¿Qué estudio permite establecer el diagnóstico definitivo del cáncer?", "options": ["Historia clínica aislada.", "Estudio histopatológico.", "Examen físico aislado.", "Área geográfica de procedencia."], "answer": 1, "hint": "La confirmación definitiva requiere analizar tejido.", "explanation": "El diagnóstico definitivo del cáncer se establece mediante estudio histopatológico."}, {"area": "Cáncer de próstata y testicular", "stem": "Paciente con cáncer de próstata presenta metástasis ósea dolorosa. ¿Qué finalidad puede tener la radioterapia en esta situación?", "options": ["Confirmar histológicamente el diagnóstico.", "Aliviar el dolor asociado a la metástasis ósea.", "Reemplazar el examen físico.", "Evitar toda terapia sistémica posterior."], "answer": 1, "hint": "En enfermedad metastásica ósea, la finalidad descrita es sintomática.", "explanation": "La radioterapia puede utilizarse con finalidad paliativa para aliviar el dolor cuando el cáncer de próstata se ha diseminado al hueso."}, {"area": "Tumores primarios del SNC", "stem": "Ante la sospecha de un tumor primario del SNC se solicitan estudios de imagen. ¿Qué examen se prefiere por su mayor sensibilidad?", "options": ["Radiografía simple.", "Ecografía abdominal.", "Resonancia magnética.", "Cintigrama óseo."], "answer": 2, "hint": "Entre TAC y RM, una de las dos se señala como la técnica preferida.", "explanation": "TAC y resonancia magnética son técnicas principales; se prefiere la resonancia magnética por su mayor sensibilidad."}, {"area": "Osteosarcoma", "stem": "En la estadificación TNM de osteosarcoma, el estudio muestra metástasis pulmonares. ¿Qué categoría corresponde?", "options": ["M0.", "M1a.", "M1b.", "N0."], "answer": 1, "hint": "La clasificación diferencia las metástasis pulmonares de otras localizaciones a distancia.", "explanation": "M1a corresponde a metástasis pulmonares; M1b corresponde a otras localizaciones a distancia."}, {"area": "Hematooncología", "stem": "Paciente con sospecha de leucemia requiere estudio diagnóstico. ¿Qué combinación corresponde?", "options": ["Hemograma completo, mielograma y biopsia de médula ósea.", "Mamografía y ecografía mamaria.", "Tacto rectal y biopsia prostática.", "Colonoscopía y endoscopía digestiva."], "answer": 0, "hint": "El estudio debe evaluar sangre periférica y médula ósea.", "explanation": "Entre los métodos diagnósticos se incluyen hemograma completo, mielograma y biopsia de médula ósea."}, {"area": "Quimioterapia", "stem": "¿Qué aguja se utiliza para acceder a un catéter central implantado subcutáneo?", "options": ["Aguja Huber.", "Aguja espinal.", "Aguja intradérmica.", "Aguja de insulina obligatoriamente."], "answer": 0, "hint": "Es una aguja especial diseñada para acceder al reservorio implantado.", "explanation": "El reservorio de un catéter central implantado subcutáneo requiere punción con aguja tipo Huber."}, {"area": "Radioterapia", "stem": "¿Cuál esquema corresponde al fraccionamiento convencional descrito?", "options": ["Cinco días a la semana, 180 a 200 cGy por día.", "Una sesión mensual de 500 cGy.", "Una única sesión semanal de 50 cGy.", "Dos sesiones al año."], "answer": 0, "hint": "El esquema busca respuesta tumoral con menor toxicidad mediante dosis diarias fraccionadas.", "explanation": "El tratamiento convencional utiliza dosis fraccionadas cinco días a la semana, de 180 a 200 cGy por día."}, {"area": "Prevención y diagnóstico", "stem": "En el sistema TNM, ¿qué representa la letra N?", "options": ["Extensión del tumor primario.", "Presencia y extensión de metástasis en ganglios linfáticos regionales.", "Metástasis a distancia.", "Grado de diferenciación celular."], "answer": 1, "hint": "La letra N se relaciona con nodos o ganglios.", "explanation": "N representa la presencia y extensión de metástasis en ganglios linfáticos regionales."}, {"area": "Cáncer de próstata y testicular", "stem": "Hombre de 31 años consulta por aumento de volumen testicular unilateral, firme, no sensible y sin signos inflamatorios. ¿Qué diagnóstico es compatible con esta descripción?", "options": ["Cáncer testicular.", "Prostatitis.", "Tumor primario del SNC.", "Mieloma múltiple."], "answer": 0, "hint": "La presentación clínica combina unilateralidad, firmeza y ausencia de inflamación.", "explanation": "El cáncer testicular se describe como un tumor germinal que puede manifestarse por aumento de volumen firme, no sensible, sin signos inflamatorios y casi siempre unilateral."}, {"area": "Tumores primarios del SNC", "stem": "Un trabajador refiere exposición laboral prolongada a cloruros de vinilo. ¿Con qué tumor del SNC se relaciona esta exposición?", "options": ["Astrocitoma.", "Linfoma de Hodgkin.", "Cáncer testicular.", "Mieloma múltiple."], "answer": 0, "hint": "La asociación corresponde a un tumor glial.", "explanation": "La exposición laboral a cloruros de vinilo se asocia a la aparición de astrocitomas."}, {"area": "Osteosarcoma", "stem": "¿Qué alternativa reúne componentes del tratamiento del osteosarcoma?", "options": ["Solo observación clínica.", "Cirugía, radioterapia complementaria posquirúrgica y quimioterapia pre o posquirúrgica.", "Solo radioterapia externa.", "Solo tratamiento oral de mantención."], "answer": 1, "hint": "El tratamiento combina manejo local y terapia sistémica.", "explanation": "El manejo incluye cirugía, radioterapia complementaria posquirúrgica y quimioterapia prequirúrgica o posquirúrgica."}, {"area": "Hematooncología", "stem": "Una persona con leucemia inicia la fase de inducción 3+7. ¿Cuál es su objetivo principal?", "options": ["Mantener dosis bajas por 2 a 3 años.", "Eliminar blastos de sangre y reducirlos en médula ósea para lograr remisión completa.", "Tratar exclusivamente compromiso del SNC.", "Realizar prevención secundaria de infecciones."], "answer": 1, "hint": "Es la primera fase del tratamiento y busca alcanzar remisión.", "explanation": "La inducción busca eliminar blastos de sangre, reducirlos en médula ósea y lograr remisión completa."}, {"area": "Quimioterapia", "stem": "Durante la administración de doxorrubicina por vía periférica el paciente refiere dolor y quemazón; se observa edema y disminución de la velocidad de infusión. ¿Cuál es la primera acción?", "options": ["Aumentar la velocidad de infusión.", "Retirar inmediatamente la vía sin aspirar.", "Suspender inmediatamente la infusión.", "Masajear la zona."], "answer": 2, "hint": "Los hallazgos corresponden a signos de extravasación.", "explanation": "Ante una extravasación se debe suspender inmediatamente la infusión y, sin retirar la vía, aspirar el máximo de sustancia posible."}, {"area": "Radioterapia", "stem": "¿Cuál corresponde a un efecto tardío de radioterapia?", "options": ["Eritema agudo.", "Mucositis de inicio precoz.", "Fibrosis tisular.", "Náuseas de los primeros días."], "answer": 2, "hint": "Los efectos tardíos aparecen a partir de los 90 días y pueden persistir por meses o años.", "explanation": "La fibrosis tisular se describe entre los efectos tardíos de radioterapia."}, {"area": "Prevención y diagnóstico", "stem": "¿Qué combinación corresponde al estadio IV en la agrupación presentada?", "options": ["Tis, N0, M0.", "T1, N0, M0.", "T4, cualquier N, M0.", "Cualquier T, cualquier N, M1."], "answer": 3, "hint": "El estadio IV se asocia a metástasis a distancia.", "explanation": "El estadio IV corresponde a cualquier T, cualquier N y M1."}, {"area": "Cáncer de próstata y testicular", "stem": "Durante educación preventiva, ¿qué antecedente debe reconocerse como factor de riesgo de cáncer testicular?", "options": ["Menopausia tardía.", "Testículo no descendido.", "Colelitiasis.", "Lactancia prolongada."], "answer": 1, "hint": "El antecedente se relaciona con una alteración del descenso testicular.", "explanation": "El testículo no descendido se incluye entre los factores de riesgo de cáncer testicular."}, {"area": "Tumores primarios del SNC", "stem": "Durante la valoración de una persona con tumor hipotalámico, ¿qué conjunto de alteraciones debe pesquisar Enfermería?", "options": ["Hematuria, disuria y retención urinaria.", "Alteración de temperatura sin infección, diabetes insípida e hiperfagia.", "Dolor óseo, aumento de volumen y fracturas.", "Mucositis, alopecia y neutropenia."], "answer": 1, "hint": "El hipotálamo participa en regulación térmica, equilibrio hídrico y conducta alimentaria.", "explanation": "En tumores hipotalámicos pueden presentarse alteración de la temperatura corporal sin infección, diabetes insípida e hiperfagia."}, {"area": "Osteosarcoma", "stem": "Paciente joven sometido a resección tumoral expresa preocupación intensa por los cambios corporales posteriores a la cirugía. ¿Qué diagnóstico de Enfermería se relaciona directamente con esta situación?", "options": ["Trastorno de la imagen corporal.", "Déficit de volumen de líquidos.", "Deterioro del intercambio gaseoso.", "Termorregulación ineficaz."], "answer": 0, "hint": "El problema central es la percepción de los cambios físicos derivados de la lesión y su resección.", "explanation": "Entre los diagnósticos de Enfermería asociados al osteosarcoma se encuentra trastorno de la imagen corporal."}, {"area": "Hematooncología", "stem": "Paciente presenta anemia, hipercalcemia, insuficiencia renal y lesiones osteolíticas. ¿Qué neoplasia es compatible con estos hallazgos?", "options": ["Linfoma de Hodgkin.", "Mieloma múltiple.", "Cáncer testicular.", "Tumor primario del SNC."], "answer": 1, "hint": "La neoplasia se origina en células plasmáticas.", "explanation": "El mieloma múltiple se caracteriza por anemia, hipercalcemia, falla renal y lesiones osteolíticas."}, {"area": "Quimioterapia", "stem": "¿Cuál de los siguientes fármacos se clasifica como vesicante?", "options": ["Doxorrubicina.", "Ciclofosfamida.", "Metotrexato.", "Etopósido."], "answer": 0, "hint": "Los vesicantes pueden producir necrosis y daño tisular irreversible.", "explanation": "La doxorrubicina se incluye entre los antineoplásicos vesicantes."}, {"area": "Radioterapia", "stem": "Paciente en radioterapia externa presenta eritema y prurito en la zona irradiada. ¿Qué educación de Enfermería es apropiada?", "options": ["Aplicar perfume para disminuir la sequedad.", "Exponer la zona al sol diariamente.", "Lavar con agua tibia y jabón neutro, mantener seca la piel y usar ropa holgada de algodón.", "Aplicar calor directo sobre la zona."], "answer": 2, "hint": "La educación busca evitar irritantes y proteger la zona irradiada.", "explanation": "Se recomienda lavar con agua tibia y jabón neutro, mantener la piel seca, evitar irritantes y exposición a sol/calor/frío y usar ropa holgada de algodón."}, {"area": "Prevención y diagnóstico", "stem": "Paciente con leucemia mieloide aguda es evaluado para trasplante alogénico. ¿Qué acción forma parte del proceso de ingreso?", "options": ["Descartar toda participación familiar.", "Evaluar factibilidad de donante familiar idéntico y derivar a Unidad de TMO cuando corresponda.", "Realizar solo radioterapia antes de la derivación.", "Omitir consentimiento informado."], "answer": 1, "hint": "El proceso incluye evaluación del caso, factibilidad del donante, derivación, consentimiento y educación.", "explanation": "Entre los criterios de ingreso se incluye evaluar la factibilidad de donante familiar idéntico en trasplante alogénico y derivar a la Unidad de TMO."}, {"area": "Cáncer de próstata y testicular", "stem": "Un paciente con cáncer testicular iniciará protocolo BEP. ¿Qué combinación de fármacos corresponde?", "options": ["Doxorrubicina, ciclofosfamida y fluorouracilo.", "Vincristina, metotrexato y leucovorina.", "Bleomicina, etopósido y cisplatino.", "Docetaxel, paclitaxel y mitoxantrona."], "answer": 2, "hint": "La sigla BEP corresponde a tres antineoplásicos utilizados en cáncer testicular.", "explanation": "BEP corresponde a bleomicina, etopósido y cisplatino."}, {"area": "Hematooncología", "stem": "En una biopsia ganglionar se identifican células de Reed-Sternberg. ¿Con qué neoplasia se relaciona este hallazgo?", "options": ["Linfoma de Hodgkin.", "Linfoma no Hodgkin.", "Leucemia mieloide crónica.", "Osteosarcoma."], "answer": 0, "hint": "Es un hallazgo celular característico de uno de los dos grandes grupos de linfoma.", "explanation": "Las células de Reed-Sternberg se asocian al linfoma de Hodgkin."}, {"area": "Quimioterapia", "stem": "¿Cuál corresponde a un efecto secundario tardío de la quimioterapia?", "options": ["Hipersensibilidad inmediata.", "Náuseas durante la infusión.", "Esterilidad o segundas neoplasias.", "Necrosis cutánea inmediata."], "answer": 2, "hint": "Los efectos tardíos pueden aparecer después y comprometer distintos órganos o la fertilidad.", "explanation": "Entre los efectos tardíos se incluyen alteraciones neurológicas, esterilidad, segundas neoplasias y alteraciones cardíacas o pulmonares."}, {"area": "Quimioterapia", "stem": "Paciente en inmunoterapia desarrolla diarrea persistente y rash cutáneo. ¿Qué aspecto debe reconocer precozmente Enfermería?", "options": ["Toxicidad inmunomediada.", "Extravasación vesicante.", "Fractura patológica.", "Retención urinaria postoperatoria."], "answer": 0, "hint": "Los inhibidores de puntos de control pueden producir efectos asociados a activación inmunológica.", "explanation": "Entre las toxicidades inmunomediadas se describen diarrea/colitis, rash, hepatitis, neumonitis y alteraciones endocrinas."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "Paciente de 38 años con leucemia aguda, posterior a quimioterapia, consulta por escalofríos y malestar general. Presenta T° 38,4 °C y FC 114 lpm. ¿Qué estado de necesidad debe priorizarse?", "options": ["Regulación de la temperatura alterada.", "Conocimiento insatisfecho.", "Actividad y reposo alterado.", "Integridad de piel, mucosas y anexos alterada."], "answer": 0, "hint": "Prioriza el problema actual evidenciado por fiebre y escalofríos.", "explanation": "El problema actual compromete la regulación de la temperatura."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "Con los mismos antecedentes (T° 38,4 °C, escalofríos y FC 114 lpm en paciente con leucemia aguda posterior a quimioterapia), ¿qué diagnóstico de Enfermería real está mejor formulado en formato PES?", "options": ["Riesgo de infección R/C quimioterapia M/P T° 38,4 °C.", "Hipertermia R/C proceso infeccioso/inflamatorio asociado a inmunosupresión M/P T° 38,4 °C, escalofríos y FC 114 lpm.", "Dolor agudo R/C tratamiento M/P fiebre.", "Conocimientos deficientes R/C leucemia M/P taquicardia."], "answer": 1, "hint": "Un diagnóstico real debe incluir problema, factor relacionado y manifestaciones presentes.", "explanation": "La alternativa correcta mantiene estructura PES y relaciona el problema con manifestaciones objetivas presentes."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "¿Cuál es el factor relacionado más coherente con el diagnóstico prioritario del caso?", "options": ["Inmunodeficiencia asociada al proceso hemato-oncológico y al tratamiento quimioterápico.", "Temperatura de 38,4 °C.", "FC 114 lpm y escalofríos.", "Edad del paciente."], "answer": 0, "hint": "El factor relacionado corresponde a la etiología del problema, no a los signos y síntomas.", "explanation": "La inmunodeficiencia secundaria al proceso hemato-oncológico y al tratamiento explica el problema; fiebre, escalofríos y taquicardia son manifestaciones."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "¿Cuál objetivo está mejor formulado para el diagnóstico prioritario?", "options": ["El paciente mejorará pronto durante la hospitalización.", "El paciente disminuirá la hipertermia, evidenciado por T° < 37,6 °C, ausencia de escalofríos y FC < 100 lpm, en 1 hora.", "El paciente no presentará nunca fiebre nuevamente.", "Administrar antipirético y controlar signos vitales en 1 hora."], "answer": 1, "hint": "El objetivo debe incluir sujeto, verbo en futuro, problema, criterios medibles derivados del M/P y tiempo al final.", "explanation": "La alternativa correcta modifica las manifestaciones del diagnóstico en criterios medibles y ubica el tiempo al final."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "¿Qué plan de actividades de Enfermería está mejor formulado para apoyar el cumplimiento del objetivo?", "options": ["Controlar signos vitales cada 30 minutos, responsable TENS; administrar antipirético según indicación de inmediato, responsable Enfermera/o; reevaluar T°, FC y escalofríos a los 30-60 minutos, responsable Enfermera/o.", "Controlar signos vitales cuando sea posible; administrar medicamentos si es necesario; reevaluar posteriormente.", "Indicar reposo sin establecer vigilancia, frecuencia ni responsable.", "Controlar solo la temperatura al alta y suspender otras valoraciones."], "answer": 0, "hint": "Cada actividad debe especificar acción, tiempo o frecuencia y responsable.", "explanation": "El plan correcto define actividades concretas, frecuencia o tiempo y responsable para cada acción."}, {"area": "Proceso de Enfermería", "case": "Mini caso PAE", "stem": "A la hora, el paciente presenta T° 37,5 °C, ausencia de escalofríos y FC 94 lpm. ¿Cuál evaluación corresponde al objetivo cumplido?", "options": ["Objetivo cumplido: el paciente disminuyó la hipertermia, evidenciado por T° 37,5 °C, ausencia de escalofríos y FC 94 lpm, a la hora.", "Objetivo por cumplir: el paciente disminuirá la fiebre en las próximas horas.", "Objetivo no cumplido porque continúa hospitalizado.", "Objetivo cumplido porque recibió antipirético."], "answer": 0, "hint": "La evaluación debe redactarse en pasado y ser espejo de los criterios y tiempo del objetivo.", "explanation": "La evaluación correcta expresa objetivo cumplido en pasado y conserva los mismos criterios medibles y el tiempo establecidos."}];
+const STORAGE_KEY = "enf801_integrativa_45_2026_v1";
+const $ = id => document.getElementById(id);
+
+let state = {
+ started:false,
+ current:0,
+ student:{name:"",nrc:"",section:""},
+ answers: QUESTIONS.map(()=>({selected:null,attempts:0,firstCorrect:false,assistedCorrect:false,completed:false,wrongOptions:[]}))
+};
+
+function save(){ localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); }
+function load(){
+ try{
+   const raw=localStorage.getItem(STORAGE_KEY);
+   if(!raw) return false;
+   const s=JSON.parse(raw);
+   if(!s || !Array.isArray(s.answers) || s.answers.length!==QUESTIONS.length) return false;
+   state=s; return true;
+ }catch(e){ return false; }
+}
+function esc(s){ return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m])); }
+
+function startQuiz(){
+ const name=$("studentName").value.trim();
+ if(!name){alert("Ingrese su nombre completo antes de comenzar.");return;}
+ state.started=true;
+ state.student={name,nrc:$("studentNrc").value.trim(),section:$("studentSection").value.trim()};
+ save(); showQuiz(); render();
+}
+function showQuiz(){
+ $("startCard").classList.add("hidden");
+ $("resultCard").classList.add("hidden");
+ $("quizCard").classList.remove("hidden");
+}
+function render(){
+ const i=state.current,q=QUESTIONS[i],a=state.answers[i];
+ $("areaBadge").textContent=q.area;
+ $("counter").textContent=`Pregunta ${i+1} de ${QUESTIONS.length}`;
+ $("progress").style.width=`${((i+1)/QUESTIONS.length)*100}%`;
+ $("stem").textContent=q.stem;
+ const ct=$("caseTag");
+ if(q.case){ct.textContent=q.case;ct.classList.remove("hidden");}else{ct.classList.add("hidden");ct.textContent="";}
+ const box=$("options");box.innerHTML="";
+ q.options.forEach((op,idx)=>{
+   const lab=document.createElement("label");lab.className="option";
+   if(a.completed){
+     if(idx===q.answer) lab.classList.add("correct");
+     else if(a.wrongOptions.includes(idx)) lab.classList.add("wrong");
+     else lab.classList.add("disabled");
+   } else if(a.wrongOptions.includes(idx)) lab.classList.add("wrong","disabled");
+   const inp=document.createElement("input");
+   inp.type="radio";inp.name="option";inp.value=idx;
+   inp.checked=a.selected===idx;
+   inp.disabled=a.completed || a.wrongOptions.includes(idx);
+   inp.addEventListener("change",()=>{a.selected=idx;save();});
+   const span=document.createElement("span");
+   span.textContent=String.fromCharCode(65+idx)+". "+op;
+   lab.append(inp,span);box.appendChild(lab);
+ });
+ $("prevBtn").disabled=i===0;
+ $("checkBtn").disabled=a.completed;
+ $("checkBtn").classList.toggle("hidden",a.completed);
+ $("nextBtn").disabled=!a.completed;
+ $("nextBtn").textContent=(i===QUESTIONS.length-1)?"Ver resultados →":"Siguiente →";
+ const fb=$("feedback");
+ if(a.completed){
+   if(a.assistedCorrect){
+     fb.className="feedback ok";
+     fb.innerHTML=`<b>${a.attempts===1?"Respuesta correcta.":"Respuesta correcta con andamiaje."}</b><br>${esc(q.explanation)}`;
+   }else{
+     fb.className="feedback bad";
+     fb.innerHTML=`<b>Respuesta no lograda tras dos intentos.</b><br>Respuesta correcta: <b>${String.fromCharCode(65+q.answer)}. ${esc(q.options[q.answer])}</b><br>${esc(q.explanation)}`;
+   }
+   fb.classList.remove("hidden");
+   $("source").textContent="Área de estudio: "+q.area;
+ }else if(a.attempts===1 && a.wrongOptions.length===1){
+   fb.className="feedback info";
+   fb.innerHTML=`<b>Pista de andamiaje:</b> ${esc(q.hint)}<br><span class="small">Seleccione otra alternativa y vuelva a comprobar.</span>`;
+   fb.classList.remove("hidden");
+   $("source").textContent="";
+ }else{
+   fb.classList.add("hidden");fb.innerHTML="";$("source").textContent="";
+ }
+}
+function checkAnswer(){
+ const i=state.current,q=QUESTIONS[i],a=state.answers[i];
+ if(a.selected===null){alert("Debe seleccionar una alternativa antes de comprobar.");return;}
+ if(a.completed)return;
+ a.attempts++;
+ if(a.selected===q.answer){
+   if(a.attempts===1)a.firstCorrect=true;
+   a.assistedCorrect=true;a.completed=true;
+ }else{
+   if(!a.wrongOptions.includes(a.selected))a.wrongOptions.push(a.selected);
+   if(a.attempts>=2){a.completed=true;a.assistedCorrect=false;}else{a.selected=null;}
+ }
+ save();render();
+}
+function prev(){if(state.current>0){state.current--;save();render();}}
+function next(){
+ const a=state.answers[state.current];
+ if(!a.completed){alert("Debe responder y comprobar esta pregunta antes de avanzar.");return;}
+ if(state.current===QUESTIONS.length-1){showResults();return;}
+ state.current++;save();render();
+}
+function getStats(){
+ const initial=state.answers.filter(a=>a.firstCorrect).length;
+ const assisted=state.answers.filter(a=>a.assistedCorrect).length;
+ const completed=state.answers.filter(a=>a.completed).length;
+ const areas={};
+ QUESTIONS.forEach((q,i)=>{
+   if(!areas[q.area])areas[q.area]={total:0,initial:0,assisted:0};
+   areas[q.area].total++;
+   if(state.answers[i].firstCorrect)areas[q.area].initial++;
+   if(state.answers[i].assistedCorrect)areas[q.area].assisted++;
+ });
+ return {initial,assisted,completed,areas};
+}
+function showResults(){
+ if(state.answers.some(a=>!a.completed)){alert("Aún hay preguntas sin completar.");return;}
+ $("quizCard").classList.add("hidden");$("startCard").classList.add("hidden");$("resultCard").classList.remove("hidden");
+ const s=getStats();
+ $("studentSummary").innerHTML=`<b>${esc(state.student.name)}</b>${state.student.nrc?` · NRC ${esc(state.student.nrc)}`:""}${state.student.section?` · Sección ${esc(state.student.section)}`:""}`;
+ $("initialScore").textContent=`${s.initial}/${QUESTIONS.length}`;
+ $("assistedScore").textContent=`${s.assisted}/${QUESTIONS.length}`;
+ $("completedScore").textContent=`${s.completed}/${QUESTIONS.length}`;
+ const areaBox=$("areaResults");areaBox.innerHTML="";
+ const h=document.createElement("div");h.className="area-row";h.innerHTML="<b>Área</b><b>1.er intento</b><b>Con apoyo</b>";areaBox.appendChild(h);
+ Object.entries(s.areas).forEach(([area,v])=>{
+   const row=document.createElement("div");row.className="area-row";
+   row.innerHTML=`<span>${esc(area)}</span><span>${v.initial}/${v.total}</span><span>${v.assisted}/${v.total}</span>`;
+   areaBox.appendChild(row);
+ });
+ save();
+}
+function review(){ $("resultCard").classList.add("hidden");$("quizCard").classList.remove("hidden");state.current=0;save();render(); }
+function restart(){if(confirm("¿Desea reiniciar y borrar todas las respuestas?")){localStorage.removeItem(STORAGE_KEY);location.reload();}}
+function clearSaved(){localStorage.removeItem(STORAGE_KEY);alert("El progreso guardado fue eliminado.");}
+
+// Generador PDF local, sin dependencias externas.
+function pdfEscape(str){
+ const map={"€":128,"‚":130,"ƒ":131,"„":132,"…":133,"†":134,"‡":135,"ˆ":136,"‰":137,"Š":138,"‹":139,"Œ":140,"Ž":142,"‘":145,"’":146,"“":147,"”":148,"•":149,"–":150,"—":151,"˜":152,"™":153,"š":154,"›":155,"œ":156,"ž":158,"Ÿ":159};
+ let out="";
+ for(const ch of String(str)){
+   let code=ch.codePointAt(0);
+   if(map[ch]!==undefined)code=map[ch];
+   else if(code>255){out+="?";continue;}
+   if(ch==="("||ch===")"||ch==="\\")out+="\\"+ch;
+   else if(code<32||code>126)out+="\\"+code.toString(8).padStart(3,"0");
+   else out+=ch;
+ }
+ return out;
+}
+function wrapText(text,max=88){
+ const words=String(text).replace(/\s+/g," ").trim().split(" ");
+ const lines=[];let line="";
+ for(const w of words){
+   const cand=line?line+" "+w:w;
+   if(cand.length>max && line){lines.push(line);line=w;}else line=cand;
+ }
+ if(line)lines.push(line);return lines;
+}
+function makePDF(){
+ const s=getStats(),now=new Date().toLocaleString("es-CL");
+ const blocks=[];
+ blocks.push({t:"Evaluación Integrativa Formativa – ENF801",bold:true,size:15});
+ blocks.push({t:`Estudiante: ${state.student.name}`,bold:true});
+ blocks.push({t:`NRC: ${state.student.nrc||"-"}   Sección: ${state.student.section||"-"}   Fecha: ${now}`});
+ blocks.push({t:`Dominio inicial: ${s.initial}/${QUESTIONS.length} (${Math.round(s.initial/QUESTIONS.length*100)}%)`,bold:true});
+ blocks.push({t:`Logro tras andamiaje: ${s.assisted}/${QUESTIONS.length} (${Math.round(s.assisted/QUESTIONS.length*100)}%)`,bold:true});
+ blocks.push({t:"Desempeño por área",bold:true,size:12});
+ Object.entries(s.areas).forEach(([area,v])=>blocks.push({t:`${area}: primer intento ${v.initial}/${v.total}; con apoyo ${v.assisted}/${v.total}`}));
+ blocks.push({t:"Detalle de respuestas",bold:true,size:12});
+ QUESTIONS.forEach((q,i)=>{
+   const a=state.answers[i];
+   const status=a.firstCorrect?"Correcta al primer intento":(a.assistedCorrect?"Correcta con andamiaje":"No lograda en dos intentos");
+   blocks.push({t:`${i+1}. [${q.area}] ${q.stem}`,bold:true});
+   blocks.push({t:`Resultado: ${status}. Intentos: ${a.attempts}.`});
+   blocks.push({t:`Respuesta correcta: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}`});
+   blocks.push({t:`Retroalimentación: ${q.explanation}`});
+ });
+ const pages=[];let cur=[];
+ function flush(){if(cur.length){pages.push(cur);cur=[];}}
+ for(const b of blocks){
+   for(const line of wrapText(b.t,b.size>=14?70:92)){
+     if(cur.length>=48)flush();
+     cur.push({t:line,bold:!!b.bold,size:b.size||10});
+   }
+   if(b.bold && cur.length<48)cur.push({t:"",bold:false,size:7});
+ }
+ flush();
+ const objects=[];
+ objects[1]="<< /Type /Catalog /Pages 2 0 R >>";
+ objects[3]="<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
+ objects[4]="<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
+ const pRefs=[],cRefs=[];let nextObj=5;
+ pages.forEach(()=>{pRefs.push(nextObj++);cRefs.push(nextObj++);});
+ objects[2]=`<< /Type /Pages /Count ${pRefs.length} /Kids [${pRefs.map(r=>r+" 0 R").join(" ")}] >>`;
+ pages.forEach((lines,pi)=>{
+   let y=805,stream="";
+   lines.forEach(line=>{
+     const size=line.size||10,font=line.bold?"F2":"F1";
+     stream+=`BT /${font} ${size} Tf 50 ${y} Td (${pdfEscape(line.t)}) Tj ET\n`;
+     y-=(size>=14?19:(size>=12?17:14));
+   });
+   stream+=`BT /F1 8 Tf 270 28 Td (Pagina ${pi+1} de ${pages.length}) Tj ET\n`;
+   objects[cRefs[pi]]=`<< /Length ${stream.length} >>\nstream\n${stream}endstream`;
+   objects[pRefs[pi]]=`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${cRefs[pi]} 0 R >>`;
+ });
+ let pdf="%PDF-1.4\n",offs=[0];
+ for(let i=1;i<objects.length;i++){offs[i]=pdf.length;pdf+=`${i} 0 obj\n${objects[i]}\nendobj\n`;}
+ const xref=pdf.length;
+ pdf+=`xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+ for(let i=1;i<objects.length;i++)pdf+=String(offs[i]).padStart(10,"0")+" 00000 n \n";
+ pdf+=`trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+ const bytes=new Uint8Array(pdf.length);
+ for(let i=0;i<pdf.length;i++)bytes[i]=pdf.charCodeAt(i)&255;
+ const blob=new Blob([bytes],{type:"application/pdf"}),url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ const safe=(state.student.name||"estudiante").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-zA-Z0-9_-]+/g,"_");
+ a.href=url;a.download=`Resultados_ENF801_Integrativa_${safe}.pdf`;document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+
+$("startBtn").addEventListener("click",startQuiz);
+$("clearBtn").addEventListener("click",clearSaved);
+$("checkBtn").addEventListener("click",checkAnswer);
+$("prevBtn").addEventListener("click",prev);
+$("nextBtn").addEventListener("click",next);
+$("reviewBtn").addEventListener("click",review);
+$("restartBtn").addEventListener("click",restart);
+$("pdfBtn").addEventListener("click",makePDF);
+
+if(load() && state.started){
+ $("studentName").value=state.student.name||"";
+ $("studentNrc").value=state.student.nrc||"";
+ $("studentSection").value=state.student.section||"";
+ if(state.answers.every(a=>a.completed))showResults();else{showQuiz();render();}
+}
+</script>
+</body>
+</html>
